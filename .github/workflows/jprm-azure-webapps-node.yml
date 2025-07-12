@@ -1,6 +1,10 @@
 name: JPRM - Azure WebApp Deployment
 on:
   workflow_dispatch:
+    inputs:
+      app_title:
+        description: 'Title of the application'
+        required: true
 env:  
   NODE_VERSION: '22.x'                
 permissions:
@@ -13,6 +17,7 @@ jobs:
       VITE_OPENAI_API_KEY: ${{ secrets.VITE_OPENAI_API_KEY }}
       VITE_OPENAI_ENDPOINT: ${{ secrets.VITE_OPENAI_ENDPOINT }}
       VITE_OPENAI_MODEL_NAME: ${{ secrets.VITE_OPENAI_MODEL_NAME }}
+      VITE_APP_TITLE: ${{ inputs.app_title }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -26,6 +31,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
+        npm run lint --if-present
         npm run build --if-present
         npm run test --if-present
 

@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly VITE_OPENAI_API_KEY: string;
   readonly VITE_OPENAI_ENDPOINT: string;
   readonly VITE_OPENAI_MODEL_NAME: string;
+  readonly VITE_APP_TITLE: string;
   // Add more custom env variables here as needed
 }
 
