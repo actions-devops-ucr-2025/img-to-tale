@@ -1,11 +1,12 @@
 import './App.css'
 import TaleGenerator from './components/TaleGenerator.jsx'
+import Title from './components/Title'
 
 function App() {
 
   return (
     <>
-      <h1>Image to Tale</h1>
+      <Title />
       <TaleGenerator />
     </>
   )
